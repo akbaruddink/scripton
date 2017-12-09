@@ -1,0 +1,19 @@
+{
+  "config": {
+    "target": "https://localhost:5001/api",
+    "phases": [
+      {"duration": 2, "arrivalRate": 1}
+    ],
+    "processor": "./artilleryHandler.js"
+  },
+  "scenarios": [
+    {
+      "name": "signup and login",
+      "flow": [
+        {"post": {"url": "/auth/signup", "beforeRequest": "generateSignupRequest"}},
+        {"post": {"url": "/auth/login", "beforeRequest": "generateLoginRequest", "afterResponse": "handleLoginResponse"}},
+        {"get": {"url": "/auth/login", "beforeRequest": "addAccessToken", "afterResponse": "handleGetTokenDetailsResponse"}}
+      ]
+    }
+  ]
+}

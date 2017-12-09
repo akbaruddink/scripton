@@ -1,0 +1,49 @@
+{
+    "name": "scripton",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "author": "",
+    "license": "ISC",
+    "apidoc": {
+        "title": "scripton Api Documentation"
+    },
+    "scripts": {
+        "start": "pm2 delete scripton; NODE_ENV=production pm2 start index.js --name 'scripton'",
+        "heroku": "NODE_ENV=production HEROKU=true node index.js",
+        "dev": "NODE_ENV=development nodemon index.js",
+        "test": "node_modules/.bin/mocha",
+        "migrations": "NODE_ENV=development node scripts/migrate.js",
+        "artillery": "cd artillery; artillery run -k payload.json ",
+        "dependencies": "npm install apidoc body-parser change-case cors dotenv eko-joi-objectid email-validator express joi joi-phone jsonwebtoken mocha mongodb mongodb-backup mongodb-restore mongoose morgan nconf password-hash path require-dir rimraf should winston --save",
+        "apidoc-api": "node_modules/apidoc/bin/apidoc -i app  -e app/auth/adminApiAuth.js -e app/adminApi  -e app/auth/publicApiAuth.js -e app/publicApi  -o public/api/docs",
+        "apidoc-adminApi": "node_modules/apidoc/bin/apidoc -i app  -e app/auth/apiAuth.js -e app/api  -e app/auth/publicApiAuth.js -e app/publicApi  -o public/admin-api/docs",
+        "apidoc-publicApi": "node_modules/apidoc/bin/apidoc -i app  -e app/auth/apiAuth.js -e app/api  -e app/auth/adminApiAuth.js -e app/adminApi  -o public/public-api/docs"
+    },
+    "dependencies": {
+        "apidoc": "^0.17.6",
+        "body-parser": "^1.18.2",
+        "change-case": "^3.0.1",
+        "cors": "^2.8.4",
+        "dotenv": "^4.0.0",
+        "eko-joi-objectid": "^1.0.2",
+        "email-validator": "^1.1.1",
+        "express": "^4.16.2",
+        "joi": "^13.0.2",
+        "joi-phone": "0.0.1",
+        "jsonwebtoken": "^8.1.0",
+        "mocha": "^4.0.1",
+        "mongodb": "^3.0.0-rc0",
+        "mongodb-backup": "^1.6.9",
+        "mongodb-restore": "^1.6.2",
+        "mongoose": "^4.13.6",
+        "morgan": "^1.9.0",
+        "nconf": "^0.9.1",
+        "password-hash": "^1.2.2",
+        "path": "^0.12.7",
+        "require-dir": "^0.3.2",
+        "rimraf": "^2.6.2",
+        "should": "^13.1.3",
+        "winston": "^2.4.0"
+    }
+}
