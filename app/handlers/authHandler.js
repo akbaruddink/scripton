@@ -1,7 +1,7 @@
 const logger = require('winston');
 const basicHelper = require('../helpers/basicHelper');
 const userModel = require('../models/userModel');
-const authorizeUser = async (request, response) => {
+const authorizeUser = async (request, response, next) => {
   let access_token = request.headers.access_token
   if(!access_token){
     return basicHelper.generateUnauthorizedResponse(response, new Error("access_token header is required"));
