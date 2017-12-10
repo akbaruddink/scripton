@@ -15,6 +15,7 @@ const api = express()
 */
 api.use('/',authHandler.authorizeUser)
 Object.keys(routes).forEach(function(routeName) {
+  console.log(routeName);
     // Initialize the route to add its functionality to router
     let route = require('./' + routeName);
 

@@ -2,7 +2,6 @@ const changeCase = require('change-case');
 const express = require('express');
 const routes = require('require-dir')();
 const logger = require('winston');
-const authHandler = require('../handlers/authHandler');
 const api = express()
 
 
@@ -12,7 +11,7 @@ const api = express()
 *
 *
 */
-api.use('/',authHandler.authorizeUser)
+// api.use('/',authHandler.authorizeUser)
 Object.keys(routes).forEach(function(routeName) {
     // Initialize the route to add its functionality to router
     let route = require('./' + routeName);

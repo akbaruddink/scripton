@@ -1,7 +1,8 @@
 const basicHelper = require('../helpers/basicHelper');
 const productModel = require('../models/productModel');
 const createProduct = async (request, response) => {
-  let data = request.body.data
+
+  let data = request.body
   if(!data){
     return  basicHelper.generateBadRequestResponse(response);
   }
@@ -10,6 +11,7 @@ const createProduct = async (request, response) => {
     name: data.name,
     data: data.data
   })
+  console.log(productRow.data);
   await productRow.save()
   response.json({status: true, data: productRow})
 }
