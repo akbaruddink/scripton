@@ -26,7 +26,7 @@ function scripton(){
     let j = document.createElement("div")
     j.classList.add("modal1-body");
     let i = document.createElement("iframe")
-    i.src = "https://scripton.herokuapp.com/editor.html"
+    i.src = "https://scripton.herokuapp.com/editor/"+productId
     i.style.height = "100%"
     i.style.width = "100%"
     j.appendChild(i)

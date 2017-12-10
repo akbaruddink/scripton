@@ -43,6 +43,11 @@ var start =  function(cb) {
     data = data.replace("{{productId}}", req.params.productId)
     res.send(data)
   })
+  app.get('/editor/:productId', (req, res)=> {
+    let data = fs.readFileSync(path.join(__dirname, '../../public/editor.html'), 'utf-8')
+    data = data.replace("{{productId}}", req.params.productId)
+    res.send(data)
+  })
   app.use(express.static(path.join(__dirname, '/../../public')));
 
   //routes
