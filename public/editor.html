@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Editor - ScriptOn</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Montez|Lobster|Josefin+Sans|Shadows+Into+Light|Pacifico|Amatic+SC:700|Orbitron:400,900|Rokkitt|Righteous|Dancing+Script:700|Bangers|Chewy|Sigmar+One|Architects+Daughter|Abril+Fatface|Covered+By+Your+Grace|Kaushan+Script|Gloria+Hallelujah|Satisfy|Lobster+Two:700|Comfortaa:700|Cinzel|Courgette' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="assets/css/iconsmind.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row fullscr">
+      <div class="col-1 bo-r text-center">
+        <div class="sb-menu">
+          <div class="sb-menu-item" id="designBtn" onclick="designMenuOpen()">
+            <span class="icon-Folder-Open icon-md"></span>
+            <p>Designs</p>
+          </div>
+          <!-- <div class="sb-menu-item active">
+            <span class="icon-Background icon-md"></span>
+            <p>Background</p>
+          </div> -->
+          <div class="sb-menu-item" id="textBtn" onclick="textMenuOpen()">
+            <span class="icon-Text-Box icon-md"></span>
+            <p>Text</p>
+          </div>
+          <div class="sb-menu-item" id="colorBtn" onclick="colorMenuOpen()">
+            <span class="icon-Palette icon-md"></span>
+            <p>Color</p>
+          </div>
+          <div class="sb-menu-item" id="uploadBtn" onclick="uploadMenuOpen()">
+            <span class="icon-Upload icon-md"></span>
+            <p>Upload</p>
+          </div>
+          <div class="sb-menu-item" id="graphicsBtn">
+            <span class="icon-Photo icon-md"></span>
+            <p>Graphics</p>
+          </div>
+        </div>
+      </div>
+      <!-- Designs -->
+      <div class="col-3 bo-r d-n" id="designMenu">
+        <p class="display-4"><b>Designs</b></p>
+        <hr>
+        <p class="lead">Select a Design</p>
+        <div class="ud-pw" id="designImages">
+
+        </div>
+      </div>
+      <!-- Text Editor -->
+      <div class="col-3 bo-r d-n" id="textMenu">
+        <p class="display-4"><b>Text</b></p>
+        <hr>
+        <p class="lead">Select Font</p>
+        <center><select id = 'select' onChange = "return fontChange()"></select></center>
+        <p class="lead pt-1">Preview (Selected Font)</p>
+        <div id="text">
+          <h4 id = "h4">This is how your text will look like.</h4>
+        </div>
+        <p class="lead pt-1">Input Text</p>
+        <input onkeyup="getTextVal()" id="textInput" type="text" class="form-control" name="">
+        <p class="lead pt-1">Preview</p>
+        <div id="text">
+          <h4 id="textPreview"></h4>
+        </div>
+        <button onclick="addText()" class="btn pt-1 btn-pri" name="button">Add <span class="icon-Next2"></span></button>
+      </div>
+      <!-- Color Selector -->
+      <div class="col-3 bo-r d-n" id="colorMenu">
+        <p class="display-4"><b>Pick Color</b></p>
+        <hr>
+        <p class="lead">Color Options Available</p>
+        <ul class="clr-nav pt-1" id="colorUl">
+          <!-- <li class="clr-pvw"></li>
+          <li class="clr-pvw" style="background-color:#fc8d74"></li>
+          <li class="clr-pvw" style="background-color:#164a7c"></li>
+          <li class="clr-pvw" style="background-color:#ff0033"></li>
+          <li class="clr-pvw" style="background-color:#23d260"></li>
+          <li class="clr-pvw" style="background-color:#4cd1ff"></li>
+          <li class="clr-pvw" style="background-color:#cc2f7b"></li>
+          <li class="clr-pvw" style="background-color:#000000"></li>
+          <li class="clr-pvw" style="background-color:#ffb739"></li>
+          <li class="clr-pvw" style="background-color:#c34628"></li>
+          <li class="clr-pvw" style="background-color:#4a2958"></li> -->
+        </ul>
+        <center></center>
+      </div>
+      <!-- Upload Section -->
+      <div class="col-3 bo-r d-n" id="uploadMenu">
+        <p class="display-4"><b>Upload</b></p>
+        <hr>
+        <p class="lead">Upload your desired image</p>
+        <div class="upload-btn-wrapper">
+          <button class="upload-btn">Click here to uplaod</button>
+          <input id="uploadInput" type="file" name="" value="">
+        </div>
+        <div class="ud-pw mt-1" id="uploadPreview"></div>
+      </div>
+      <div class="col ed-sec">
+        <div class="row" style="margin-top:5%">
+          <div class="col-12 row">
+            <div class="col-5">
+            </div>
+            <div  style="border: 1px solid black;min-width:500px;min-height:500px">
+              <div style="position:fixed" id="myDiv"></div>
+            </div>
+            <div style="top:5%">
+              <ul id="myUl">
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src="assets/js/uiController.js"></script>
+  <script src="assets/js/selectFont.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
+  <script src="https://pixolith.github.io/fabricjs-customise-controls-extension/dependencies/fabric/dist/fabric.js" ></script>
+  <script src="js/customizeControl.min.js" ></script>
+  <script src="js/helper.js" ></script>
+  <script src="js/core.js" ></script>
+</body>
+
+</html>

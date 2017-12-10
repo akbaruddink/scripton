@@ -1,0 +1,203 @@
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #23d260;
+}
+
+.fullscr {
+  height: 100vh;
+}
+
+.centered {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bo-r {
+  border-right: 1px solid #c7c7c7;
+}
+
+.sb-menu {
+  cursor: pointer;
+}
+
+.sb-menu-item {
+  padding-top: 1em;
+  border-bottom: 1px solid #c7c7c7;
+}
+
+.sb-menu-item.active {
+  color: #23d260;
+}
+
+.sb-menu-item:hover {
+  color: #23d260;
+}
+
+.icon-md {
+  font-size: 3em;
+}
+
+.ed-sec {
+  background: rgba(0, 0, 0, 0) url("../img/pattern-bg.jpg") repeat scroll 0 0;
+}
+
+.pt-1 {
+  padding-top: 1em;
+}
+
+.mt-1 {
+  margin-top: 1em;
+}
+
+.mt-4 {
+  margin-top: 4em;
+}
+
+.btn-pri {
+  color: #fff;
+  background-color: #23d260
+}
+
+.d-n {
+  display: none;
+}
+
+.clr-nav {
+  list-style: none;
+}
+
+.clr-pvw {
+  border: 1px solid #000;
+  margin: 2px;
+  zoom: 1;
+  vertical-align: top;
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+}
+
+ul.clr-nav {
+  padding-left: 0px;
+}
+
+.ud-pw img {
+  border: 1px solid #c7c7c7;
+  border-radius: .25rem;
+  padding: 10px;
+  margin: 5px 5px 0 0;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload-btn {
+  border: 2px solid #23d260;
+  color: #fff;
+  background-color: #23d260;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+td img {
+  height: 100px;
+  border: 1px solid #c7c7c7;
+  border-radius: .25rem;
+  padding: 10px;
+  margin: 5px 5px 0 0;
+}
+
+.so-nav {
+  background-color: white;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1);
+}
+
+/*Product Modal Starts Here*/
+.modal1 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 10px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal1-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 99%;
+    height: 99%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.closeModal {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal1-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal1-body {padding: 2px 16px; height: 100%;}
+
+.modal1-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
