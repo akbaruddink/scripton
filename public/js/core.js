@@ -348,5 +348,5 @@ async function createMultipleMainCanvas(canvas){
 let data
 axios.get("https://scripton.herokuapp.com/public-api/product/"+productId).then((res) => {
   data = res.data.data.data
-  console.log(data,  res.data.data);
+  initialize()
 }).catch(err => console.log("err"))
