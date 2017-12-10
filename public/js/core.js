@@ -1,39 +1,39 @@
-const data = {
-  color: ["#FFFFFF","#fc8d74","#164a7c","#ff0033","#23d260","#4cd1ff","#cc2f7b","#000000","#ffb739","#c34628","#4a2958"],
-  mainCanvas: {
-    type: "SINGLE",
-    canvas: {
-      id: "mainCanvas",
-      width: 500,
-      height: 500,
-      top:0,
-      left:0,
-      data:{
-        type: "IMAGE",
-        url: "images/bag.png",
-        filters: [{
-          type: "TINT",
-          color: "#0057CC",
-          opacity: 0.5
-        }]
-      }
-    }
-  },
-  subCanvas:[{
-    id: "subCanvas",
-    width:  200,
-    height: 350,
-    top: 220,
-    left: 70,
-    data: [{
-      type: "TEXT",
-      text: "Hello World",
-      options: {
-        fontSize: 20
-      }
-    }]
-  }]
-}
+// const data = {
+//   color: ["#FFFFFF","#fc8d74","#164a7c","#ff0033","#23d260","#4cd1ff","#cc2f7b","#000000","#ffb739","#c34628","#4a2958"],
+//   mainCanvas: {
+//     type: "SINGLE",
+//     canvas: {
+//       id: "mainCanvas",
+//       width: 500,
+//       height: 500,
+//       top:0,
+//       left:0,
+//       data:{
+//         type: "IMAGE",
+//         url: "images/bag.png",
+//         filters: [{
+//           type: "TINT",
+//           color: "#0057CC",
+//           opacity: 0.5
+//         }]
+//       }
+//     }
+//   },
+//   subCanvas:[{
+//     id: "subCanvas",
+//     width:  200,
+//     height: 350,
+//     top: 220,
+//     left: 70,
+//     data: [{
+//       type: "TEXT",
+//       text: "Hello World",
+//       options: {
+//         fontSize: 20
+//       }
+//     }]
+//   }]
+// }
 
 const generated = {
   mainCanvas: {
@@ -343,4 +343,6 @@ async function createMultipleMainCanvas(canvas){
   _mainCanvas.centerObject(_group)
 }
 
-initialize()
+// initialize()
+let data
+console.log(productId, "aleem");
