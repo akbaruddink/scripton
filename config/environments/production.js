@@ -15,6 +15,6 @@ let database = {
 
 nconf.set('debug', true)
 nconf.set('database', database)
-nconf.set('port', 5000)
+nconf.set('port', process.env.PORT || process.env.port || 5000)
 nconf.set('secretKey', "DEVELOPMENT_SECRET_KEY")
 nconf.set('aws', aws)
