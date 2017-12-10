@@ -42,7 +42,7 @@ async function initialize() {
     data = res.data.data
     let t = "",i=1
     for(let r of data){
-      t+="<tr><td scope='row'>"+i+"</td><td>"+r.name+"</td><td><span class='icon-Data-Transfer icon-transfer' data-toggle='modal' data-target=''#exampleModal' onclick='opens("+i+")'></span></td><td><span class='icon-Trash-withMen icon-trash' data-toggle='modal' data-target='#deleteModal'></span></td></tr>"
+      t+="<tr><td scope='row'>"+i+"</td><td>"+r.name+"</td><td><span class='icon-Data-Transfer icon-transfer' data-toggle='modal' data-target='#exampleModal' onclick='opens("+i+")'></span></td><td><span class='icon-Trash-withMen icon-trash' data-toggle='modal' data-target='#deleteModal'></span></td></tr>"
       i++
     }
     console.log(t);
@@ -52,5 +52,6 @@ async function initialize() {
 }
 
 function opens(i){
-  alert(JSON.toString(data[i-1]))
+  $("#ccc").html("&lt;script src='https://scripton.herokuapp.com/js/ss/"+data[i]._id+"'&gt;&lt;/script&gt;")
+  // alert("")
 }
