@@ -1,3 +1,4 @@
+let productId = "{{productId}}"
 // const data = {
 //   color: ["#FFFFFF","#fc8d74","#164a7c","#ff0033","#23d260","#4cd1ff","#cc2f7b","#000000","#ffb739","#c34628","#4a2958"],
 //   mainCanvas: {
