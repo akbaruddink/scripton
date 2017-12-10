@@ -2,13 +2,13 @@ $(document).ready(function() {
 	$("#loginForm").submit(function(event) {
 		event.preventDefault();
 
-		var url = "https://exbots.herokuapp.com/api/auth/login";
+		var url = "https://scripton.herokuapp.com/api/auth/login";
 		var username = $("#email").val();
 		var password = $("#password").val();
 		var twoFactorToken = $("#twoFactorToken").val() || undefined
 
 		var data = {
-			email: username,
+			username: username,
 			password: password,
 			twoFactorToken: twoFactorToken
 		};
@@ -20,11 +20,11 @@ $(document).ready(function() {
 		}
 		$("#he").html("Logging in ...")
 		var posting = $.post(url, data, function (data, status) {
-			console.log("Data: " + JSON.stringify(data) + "\nStatus: " + JSON.stringify(status));
 			if (status === "success") {
 
 				if(!token){
 					accessToken = data.data.access_token;
+					createCookie("at", accessToken)
 				}else{
 					console.log("here calling")
 				}
@@ -56,7 +56,7 @@ if(document.location.toString().indexOf('?') !== -1) {
 }
 
 function called(){
-	var url = "https://exbots.herokuapp.com/api/auth/login";
+	var url = "https://scripton.herokuapp.com/api/auth/login";
 	var username = $("#email").val();
 	var password = $("#password").val();
 
@@ -72,11 +72,12 @@ function called(){
 	}
 	console.log("called");
 	var posting = $.post(url, data, function (data, status) {
-		console.log("Data: " + JSON.stringify(data) + "\nStatus: " + JSON.stringify(status));
+
 		if (status === "success") {
 
 			if(!token){
 				accessToken = data.data.access_token;
+				createCookie("at", accessToken)
 			}else{
 				console.log("here calling")
 			}
@@ -87,4 +88,29 @@ function called(){
 	}).done().fail(function(err){
 		alert("asdad;")
 	});
+}
+
+function createCookie(name,value,days) {
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        var expires = "; expires="+date.toGMTString();
+    }
+    else var expires = "";
+    document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+function eraseCookie(name) {
+    createCookie(name,"",-1);
 }
