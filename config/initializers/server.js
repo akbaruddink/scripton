@@ -5,13 +5,13 @@ const path = require('path');
 // Local dependecies
 const nconf = require('nconf');
 const https = require('https')
-const fs = require('fs')
 // create the express app
 // configure middlewares
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const logger = require('winston');
 const cors = require('cors');
+const fs = require('fs');
 const morganHandler = require('../../app/handlers/morganHandler')
 
 logger.stream = {
@@ -33,6 +33,11 @@ var start =  function(cb) {
   app.use(cors())
 
   logger.info('[SERVER] Initializing routes');
+  app.get('/js/ss/:productId', (req, res)=> {
+    let data = fs.readFileSync(path.join(__dirname, '../../public/js/ss.js'), 'utf-8')
+    data = data.replace("{{productId}}", req.params.productId)
+    res.send(data)
+  })
   app.use(express.static(path.join(__dirname, '/../../public')));
 
   //routes

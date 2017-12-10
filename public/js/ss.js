@@ -1,3 +1,4 @@
+let productId = {{productId}}
 function loadjscssfile(filename, filetype){
     if (filetype=="js"){ //if filename is a external JavaScript file
         var fileref=document.createElement('script')
@@ -14,7 +15,7 @@ function loadjscssfile(filename, filetype){
         document.getElementsByTagName("head")[0].appendChild(fileref)
 }
 
-loadjscssfile("assets/css/theme.css", "css") //dynamically load and add this .js file
+loadjscssfile("https://scripton.herokuapp.com/assets/css/theme.css", "css") //dynamically load and add this .js file
 let modal
 function scripton(){
   if(!modal){
@@ -25,7 +26,7 @@ function scripton(){
     let j = document.createElement("div")
     j.classList.add("modal1-body");
     let i = document.createElement("iframe")
-    i.src = "index.html"
+    i.src = "https://scripton.herokuapp.com/editor.html"
     i.style.height = "100%"
     i.style.width = "100%"
     j.appendChild(i)
