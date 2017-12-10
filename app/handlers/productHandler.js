@@ -24,7 +24,7 @@ const getProductList = async (request, response) => {
 
 const getProductById = async (request, response) => {
   let _id = request.params.productId
-  let product = await productModel.find({_id}).lean()
+  let product = await productModel.findOne({_id}).lean()
   response.json({status: true, data: product})
 }
 
