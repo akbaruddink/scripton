@@ -35,7 +35,7 @@ var start =  function(cb) {
   logger.info('[SERVER] Initializing routes');
   app.get('/js/ss/:productId', (req, res)=> {
     let data = fs.readFileSync(path.join(__dirname, '../../public/js/ss.js'), 'utf-8')
-    data = data.replace("{{productId}}", req.params.productId)
+    data = data.replace("{{productId}}", "'"+req.params.productId+"'")
     res.send(data)
   })
   app.use(express.static(path.join(__dirname, '/../../public')));
