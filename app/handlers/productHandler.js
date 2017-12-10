@@ -7,7 +7,8 @@ const createProduct = async (request, response) => {
   }
   let productRow = new productModel({
     user: response.locals.decoded._id,
-    data
+    name: data.name,
+    data: data.data
   })
   await productRow.save()
   response.json({status: true, data: productRow})
